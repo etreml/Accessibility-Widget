@@ -1,0 +1,502 @@
+/**
+ * Accessibility Widget CSS
+ * Konfigurierbare Barrierefreiheits-Styles
+ */
+
+/* Import local fonts */
+@import url('fonts/poppins.css');
+@import url('fonts/fontawesome.css');
+
+/* Widget Container */
+.accessibility-widget {
+    position: fixed;
+    z-index: 9999;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Toggle Button */
+.accessibility-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessibility-toggle:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.accessibility-toggle:focus {
+    outline: 3px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+/* Panel */
+.accessibility-panel {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    display: none;
+    overflow: hidden;
+    z-index: 2000;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.accessibility-panel.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Panel Header */
+.accessibility-header {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.accessibility-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.accessibility-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.accessibility-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.accessibility-close:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Panel Content */
+.accessibility-content {
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.accessibility-section {
+    margin-bottom: 20px;
+}
+
+.accessibility-section:last-child {
+    margin-bottom: 0;
+}
+
+.accessibility-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Buttons */
+.accessibility-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    color: #333;
+}
+
+.accessibility-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.accessibility-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.accessibility-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.accessibility-btn i {
+    margin-right: 8px;
+    width: 14px;
+    text-align: center;
+}
+
+/* High Contrast Mode */
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast * {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .accessibility-toggle {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .accessibility-panel {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
+body.high-contrast .accessibility-header {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .accessibility-btn {
+    background: #333 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .accessibility-btn:hover {
+    background: #555 !important;
+}
+
+body.high-contrast .accessibility-btn.active {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* Inverted Colors */
+body.inverted {
+    filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Focus Styles - Dauerhafte Link-Hervorhebung */
+body.focus-links a,
+body.focus-links button,
+body.focus-links [tabindex],
+body.focus-links input,
+body.focus-links textarea,
+body.focus-links select {
+    outline: 3px solid #ff6b35 !important;
+    outline-offset: 2px !important;
+    background: #fff3e0 !important;
+    color: #333 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3) !important;
+    position: relative !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Ausnahmen für Karten-spezifische Elemente */
+body.focus-links .heute-movie-card,
+body.focus-links .vorschau-movie-card,
+body.focus-links .spielplan-movie-card {
+    transform: none !important;
+}
+
+body.focus-links .heute-movie-poster,
+body.focus-links .vorschau-movie-poster,
+body.focus-links .spielplan-movie-poster {
+    transform: none !important;
+}
+
+body.focus-links .details-btn,
+body.focus-links .vorschau-details-btn {
+    transform: none !important;
+}
+
+/* Hover-Effekte */
+body.focus-links a:hover,
+body.focus-links button:hover,
+body.focus-links [tabindex]:hover,
+body.focus-links input:hover,
+body.focus-links textarea:hover,
+body.focus-links select:hover {
+    background: #ff6b35 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.5) !important;
+}
+
+/* Keine Transform-Effekte für Karten-Elemente beim Hover */
+body.focus-links .heute-movie-card:hover,
+body.focus-links .vorschau-movie-card:hover,
+body.focus-links .spielplan-movie-card:hover,
+body.focus-links .heute-movie-poster:hover,
+body.focus-links .vorschau-movie-poster:hover,
+body.focus-links .spielplan-movie-poster:hover,
+body.focus-links .details-btn:hover,
+body.focus-links .vorschau-details-btn:hover {
+    transform: none !important;
+}
+
+/* Focus-Effekte */
+body.focus-links a:focus,
+body.focus-links button:focus,
+body.focus-links [tabindex]:focus,
+body.focus-links input:focus,
+body.focus-links textarea:focus,
+body.focus-links select:focus {
+    background: #ff6b35 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.5) !important;
+}
+
+/* Reading Guide */
+body.reading-guide::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 0%, transparent 49%, rgba(255, 107, 53, 0.3) 50%, transparent 51%, transparent 100%);
+    background-size: 100% 2em;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Reduced Motion */
+body.reduce-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Text-to-Speech Styles */
+.speaking {
+    background: #ff6b35 !important;
+    color: white !important;
+    outline: 3px solid #ff6b35 !important;
+    outline-offset: 2px !important;
+}
+
+.speaking-indicator {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #ff6b35;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 10001;
+    display: none;
+    animation: pulse 1s infinite;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.speaking-indicator.active {
+    display: block;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Position-spezifische Styles mit konfigurierbaren Abständen */
+.accessibility-widget[data-position="top-left"] .accessibility-panel {
+    top: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    left: 0;
+}
+
+.accessibility-widget[data-position="top-center"] .accessibility-panel {
+    top: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.accessibility-widget[data-position="top-right"] .accessibility-panel {
+    top: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    right: 0;
+}
+
+.accessibility-widget[data-position="middle-left"] .accessibility-panel {
+    top: 50%;
+    left: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    transform: translateY(-50%);
+}
+
+.accessibility-widget[data-position="middle-right"] .accessibility-panel {
+    top: 50%;
+    right: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    transform: translateY(-50%);
+}
+
+.accessibility-widget[data-position="bottom-left"] .accessibility-panel {
+    bottom: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    left: 0;
+}
+
+.accessibility-widget[data-position="bottom-center"] .accessibility-panel {
+    bottom: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.accessibility-widget[data-position="bottom-right"] .accessibility-panel {
+    bottom: calc(var(--widget-margin, 20px) + var(--button-radius, 25px) + 15px);
+    right: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .accessibility-panel {
+        width: 280px !important;
+        max-width: calc(100vw - 40px) !important;
+    }
+    
+    .accessibility-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .accessibility-content {
+        max-height: 300px;
+    }
+    
+    .speaking-indicator {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+    
+    /* Kleinere Abstände auf mobilen Geräten */
+    .accessibility-widget {
+        --widget-margin: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .accessibility-panel {
+        width: calc(100vw - 40px) !important;
+        right: 10px !important;
+        left: 10px !important;
+    }
+    
+    .accessibility-widget[data-position="bottom-left"] .accessibility-panel,
+    .accessibility-widget[data-position="top-left"] .accessibility-panel,
+    .accessibility-widget[data-position="middle-left"] .accessibility-panel {
+        left: 10px !important;
+        right: auto !important;
+    }
+    
+    .accessibility-widget[data-position="bottom-right"] .accessibility-panel,
+    .accessibility-widget[data-position="top-right"] .accessibility-panel,
+    .accessibility-widget[data-position="middle-right"] .accessibility-panel {
+        right: 10px !important;
+        left: auto !important;
+    }
+    
+    .accessibility-widget[data-position="bottom-center"] .accessibility-panel,
+    .accessibility-widget[data-position="top-center"] .accessibility-panel {
+        left: 10px !important;
+        right: 10px !important;
+        transform: none !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .accessibility-panel {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .accessibility-section h4 {
+        color: #e2e8f0;
+        border-bottom-color: #4a5568;
+    }
+    
+    .accessibility-btn {
+        background: #4a5568;
+        color: #e2e8f0;
+        border-color: #718096;
+    }
+    
+    .accessibility-btn:hover {
+        background: #718096;
+        border-color: #a0aec0;
+    }
+    
+    .accessibility-btn.active {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .accessibility-toggle,
+    .accessibility-btn,
+    .accessibility-panel {
+        transition: none !important;
+    }
+    
+    .accessibility-panel.active {
+        animation: none !important;
+    }
+    
+    .speaking-indicator {
+        animation: none !important;
+    }
+} 
