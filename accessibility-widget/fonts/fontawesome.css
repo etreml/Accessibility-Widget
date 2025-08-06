@@ -1,0 +1,30 @@
+/* Font Awesome 6.5.2 - Local Version */
+/* Alle Font Awesome Dateien sind lokal verfügbar */
+
+/* Import der lokalen Font Awesome CSS */
+@import url('all.min.css');
+
+/* Lokale Font Awesome Fonts */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url('fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('fa-regular-400.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('fa-brands-400.woff2') format('woff2');
+} 
