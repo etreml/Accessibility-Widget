@@ -243,20 +243,20 @@ body.focus-links select {
 }
 
 /* Ausnahmen für Karten-spezifische Elemente */
-body.focus-links .heute-movie-card,
-body.focus-links .vorschau-movie-card,
-body.focus-links .spielplan-movie-card {
+body.focus-links
+body.focus-links
+body.focus-links {
     transform: none !important;
 }
 
-body.focus-links .heute-movie-poster,
-body.focus-links .vorschau-movie-poster,
-body.focus-links .spielplan-movie-poster {
+body.focus-links
+body.focus-links
+body.focus-links {
     transform: none !important;
 }
 
-body.focus-links .details-btn,
-body.focus-links .vorschau-details-btn {
+body.focus-links
+body.focus-links {
     transform: none !important;
 }
 
@@ -273,14 +273,7 @@ body.focus-links select:hover {
 }
 
 /* Keine Transform-Effekte für Karten-Elemente beim Hover */
-body.focus-links .heute-movie-card:hover,
-body.focus-links .vorschau-movie-card:hover,
-body.focus-links .spielplan-movie-card:hover,
-body.focus-links .heute-movie-poster:hover,
-body.focus-links .vorschau-movie-poster:hover,
-body.focus-links .spielplan-movie-poster:hover,
-body.focus-links .details-btn:hover,
-body.focus-links .vorschau-details-btn:hover {
+body.focus-links:hover {
     transform: none !important;
 }
 
