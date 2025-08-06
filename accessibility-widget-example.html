@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Widget - Beispiel</title>
+    
+    <!-- Accessibility Widget CSS (includes local Poppins and Font Awesome) -->
+    <link rel="stylesheet" href="accessibility-widget/accessibility-widget.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .example-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .example-section h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .config-example {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-family: inherit;
+        }
+        
+        .button:hover {
+            background: #0056b3;
+        }
+        
+        .demo-content {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .demo-content a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .demo-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Accessibility Widget - Konfigurierbares Barrierefreiheits-Tool</h1>
+        
+        <div class="example-section">
+            <h2>Grundlegende Verwendung</h2>
+            <p>Das Accessibility Widget kann einfach mit Standard-Einstellungen initialisiert werden:</p>
+            
+            <div class="code-block"><pre>
+&lt;!-- HTML --&gt;
+&lt;script src="accessibility-widget/accessibility-widget.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="accessibility-widget/accessibility-widget.css"&gt;
+
+&lt;script&gt;
+// Standard-Konfiguration
+const widget = new AccessibilityWidget();
+&lt;/script&gt;</pre></div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Konfigurierbare Optionen</h2>
+            <p>Das Widget kann vollständig konfiguriert werden:</p>
+            
+            <div class="code-block"><pre>
+const widget = new AccessibilityWidget({
+    // Position des Buttons
+    position: 'bottom-right', // 'bottom-right', 'bottom-left', 'top-right', 'top-left'
+    
+    // Farben
+    buttonColor: '#007bff',
+    buttonHoverColor: '#0056b3',
+    
+    // Größen
+    panelWidth: 300,
+    buttonSize: 50,
+    
+    // Z-Index
+    zIndex: 9999,
+    
+    // Automatisch anzeigen beim Laden
+    showOnLoad: true,
+    
+    // Sprache
+    language: 'de'
+});          </pre></div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Verfügbare Funktionen</h2>
+            <ul class="feature-list">
+                <li><strong>Hoher Kontrast:</strong> Ändert die Farben für bessere Lesbarkeit</li>
+                <li><strong>Farben umkehren:</strong> Invertiert alle Farben auf der Seite</li>
+                <li><strong>Links hervorheben:</strong> Zeigt alle klickbaren Elemente deutlich an</li>
+                <li><strong>Lesehilfe:</strong> Fügt horizontale Linien zur besseren Orientierung hinzu</li>
+                <li><strong>Textgröße:</strong> Vergrößert oder verkleinert den Text</li>
+                <li><strong>Bewegung reduzieren:</strong> Deaktiviert Animationen für empfindliche Nutzer</li>
+                <li><strong>Seite vorlesen:</strong> Liest den gesamten Seiteninhalt vor</li>
+                <li><strong>Element vorlesen:</strong> Liest einzelne Elemente beim Klicken vor</li>
+            </ul>
+        </div>
+        
+        <div class="example-section">
+            <h2>Beispiel-Konfigurationen</h2>
+            
+            <div class="config-example">
+                <h3>Minimalistische Konfiguration</h3>
+                <div class="code-block"><pre>
+const widget = new AccessibilityWidget({
+    position: 'bottom-left',
+    buttonColor: '#28a745',
+    showOnLoad: false
+});</pre></div>
+            </div>
+            
+            <div class="config-example">
+                <h3>Großes Widget für Touch-Geräte</h3>
+                <div class="code-block"><pre>
+const widget = new AccessibilityWidget({
+    buttonSize: 60,
+    panelWidth: 350,
+    buttonColor: '#ff6b35',
+    buttonHoverColor: '#e55a2b'
+});</pre></div>
+            </div>
+            
+            <div class="config-example">
+                <h3>Alle verfügbaren Positionen</h3>
+                <div class="code-block"><pre>
+// Oben
+const widget1 = new AccessibilityWidget({ position: 'top-left' });
+const widget2 = new AccessibilityWidget({ position: 'top-center' });
+const widget3 = new AccessibilityWidget({ position: 'top-right' });
+
+// Mitte
+const widget4 = new AccessibilityWidget({ position: 'middle-left' });
+const widget5 = new AccessibilityWidget({ position: 'middle-right' });
+
+// Unten
+const widget6 = new AccessibilityWidget({ position: 'bottom-left' });
+const widget7 = new AccessibilityWidget({ position: 'bottom-center' });
+const widget8 = new AccessibilityWidget({ position: 'bottom-right' });</pre></div>
+            </div>
+            
+            <div class="config-example">
+                <h3>Konfigurierbare Abstände</h3>
+                <div class="code-block"><pre>
+// Verschiedene Abstände vom Rand
+const widget1 = new AccessibilityWidget({ margin: 10 });   // 10px vom Rand
+const widget2 = new AccessibilityWidget({ margin: 30 });   // 30px vom Rand
+const widget3 = new AccessibilityWidget({ margin: 50 });   // 50px vom Rand
+
+// Kombiniert mit verschiedenen Button-Größen
+const widget4 = new AccessibilityWidget({ 
+    margin: 25, 
+    buttonSize: 60 
+}); // Größerer Button, angepasste Abstände
+
+// Für Touch-Geräte mit größeren Abständen
+const widget5 = new AccessibilityWidget({ 
+    margin: 40, 
+    buttonSize: 70 
+}); // Großer Button, große Abstände</pre></div>
+            </div>
+            
+            <div class="config-example">
+                <h3>Mehrsprachige Unterstützung</h3>
+                <div class="code-block"><pre>
+// Englisch (Standard)
+const widget1 = new AccessibilityWidget({ language: 'en' });
+
+// Deutsch
+const widget2 = new AccessibilityWidget({ language: 'de' });
+
+// Automatischer Fallback auf Englisch bei unbekannten Sprachen
+const widget3 = new AccessibilityWidget({ language: 'fr' }); // Wird Englisch verwenden</pre></div>
+            </div>
+        </div>
+        
+        <div class="example-section">
+            <h2>API-Methoden</h2>
+            <p>Das Widget bietet verschiedene Methoden zur Steuerung:</p>
+            
+            <div class="code-block"><pre>
+// Widget anzeigen/verstecken
+widget.show();
+widget.hide();
+
+// Widget komplett entfernen
+widget.destroy();
+
+// Globale Funktion für einfache Initialisierung
+window.initAccessibilityWidget({
+    position: 'bottom-right',
+    buttonColor: '#007bff'
+});</pre></div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Demo-Inhalt</h2>
+            <p>Hier ist etwas Demo-Inhalt, um die Barrierefreiheits-Funktionen zu testen:</p>
+            
+            <div class="demo-content">
+                <h3>Willkommen auf unserer Demo-Seite</h3>
+                <p>Dies ist ein <a href="#">Beispiel-Link</a> und hier ist ein <button class="button">Beispiel-Button</button>.</p>
+                
+                <p>Sie können das Accessibility Widget verwenden, um:</p>
+                <ul>
+                    <li>Die Textgröße zu ändern</li>
+                    <li>Den Kontrast zu erhöhen</li>
+                    <li>Links hervorzuheben</li>
+                    <li>Den Text vorlesen zu lassen</li>
+                </ul>
+                
+                <p>Das Widget speichert Ihre Einstellungen automatisch und stellt sie beim nächsten Besuch wieder her.</p>
+            </div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Integration in bestehende Projekte</h2>
+            <p>Um das Widget in ein bestehendes Projekt zu integrieren:</p>
+            
+            <ol>
+                <li>Laden Sie die Dateien <code>accessibility-widget.js</code> und <code>accessibility-widget.css</code> herunter</li>
+                <li>Fügen Sie die CSS-Datei in den &lt;head&gt; ein</li>
+                <li>Fügen Sie die JS-Datei vor dem schließenden &lt;/body&gt; Tag ein</li>
+                <li>Initialisieren Sie das Widget mit Ihrer gewünschten Konfiguration</li>
+            </ol>
+            
+            <div class="code-block"><pre>
+&lt;!-- In Ihrem HTML --&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="accessibility-widget.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Ihr Seiteninhalt --&gt;
+    
+    &lt;script src="accessibility-widget.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // Initialisierung mit Ihrer Konfiguration
+        const accessibilityWidget = new AccessibilityWidget({
+            position: 'bottom-right',
+            buttonColor: '#007bff',
+            showOnLoad: true,
+            language: 'de'
+        });
+    &lt;/script&gt;
+&lt;/body&gt;</pre></div>
+        </div>
+    </div>
+    
+    <!-- Accessibility Widget JS -->
+    <script src="accessibility-widget/accessibility-widget.js"></script>
+    
+    <!-- Demo-Widget initialisieren -->
+    <script>
+        // Demo-Widget mit Standard-Einstellungen
+        const demoWidget = new AccessibilityWidget({
+            position: 'bottom-right',
+            buttonColor: '#007bff',
+            buttonHoverColor: '#0056b3',
+            showOnLoad: true,
+            language: 'en'
+        });
+        
+        // Beispiel für dynamische Konfiguration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Widget nach 2 Sekunden anzeigen (falls nicht automatisch)
+            setTimeout(() => {
+                if (demoWidget) {
+                    demoWidget.show();
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 
