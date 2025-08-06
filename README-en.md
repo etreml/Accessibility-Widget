@@ -2,7 +2,9 @@
 
 A configurable accessibility tool for websites that provides various assistive functions for people with disabilities.
 
-> **German version available:** [README-accessibility-widget.md](README-accessibility-widget.md)
+No legal liability is assumed.
+
+> **German version available:** [README.md](README.md)
 
 ## Features
 
