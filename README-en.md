@@ -2,7 +2,7 @@
 
 A configurable accessibility tool for websites that provides various assistive functions for people with disabilities.
 
-No legal liability is assumed.
+No legal liability is assumed. This widget was generated entirely with AI.
 
 > **German version available:** [README.md](README.md)
 

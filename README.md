@@ -2,7 +2,7 @@
 
 Ein konfigurierbares Barrierefreiheits-Tool für Webseiten, das verschiedene Hilfsfunktionen für Menschen mit Behinderungen bereitstellt.
 
-Es werden keine rechtlichen Haftungen übernommen.
+Es werden keine rechtlichen Haftungen übernommen. Dieses Widget wurde vollkommen mit KI generiert.
 
 > **English version available:** [README-en.md](README-en.md)
 
